@@ -1,9 +1,8 @@
-package com.egt.persistence.dao;
+package com.egt.persistence.jpa;
 
 import java.util.List;
 
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Import;
 import org.springframework.stereotype.Repository;
 
 import com.egt.core.common.exception.DatabaseException;
@@ -11,9 +10,9 @@ import com.egt.persistence.bean.Criteria;
 import com.egt.persistence.bean.PagingBean;
 @Configuration
 @Repository
-public interface BaseDAO {
+public interface BaseRepository {
 
-	public static final String ENTITY_MODEL_ALIAS = "egt";
+	public static final String ENTITY_MODEL_ALIAS = "model";
 	/**
 	 * Save method that make an entity instance managed and persistent. 
 	 * @param entity - Entity object.

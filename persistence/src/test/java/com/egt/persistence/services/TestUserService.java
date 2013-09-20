@@ -11,8 +11,8 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.support.AnnotationConfigContextLoader;
 
 import com.egt.persistence.config.PersistenceJPAConfigXml;
-import com.egt.persistence.dao.UserDAO;
 import com.egt.persistence.entity.User;
+import com.egt.persistence.jpa.UserRepository;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = { PersistenceJPAConfigXml.class }, loader = AnnotationConfigContextLoader.class)
@@ -20,15 +20,15 @@ public class TestUserService {
     @Autowired
     private UserService service;
     @Autowired
-    private UserDAO dao;
+    private UserRepository dao;
    
     @Test
     public final void whenInvalidEntityIsCreated_thenDataException() throws Exception {
     	User user = new User();
-    	user.setUserName("test");
-    	user.setPassword("password");
-    	user.setCreatedBy("tip");
-    	user.setModifiedBy("tip");
+    	user.setUserName("testcc");
+    	user.setPassword("passworccd");
+    	user.setCreatedBy("tipcc");
+    	user.setModifiedBy("tipcc");
     	user.setCreateDate(new Date());
     	user.setModifiedDate(new Date());
     	service.createOrUpdateCostCentreCodes(user);

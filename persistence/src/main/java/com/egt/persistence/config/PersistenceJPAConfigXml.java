@@ -6,8 +6,8 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.ImportResource;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
-import com.egt.persistence.dao.UserDAO;
-import com.egt.persistence.dao.UserDAOImpl;
+import com.egt.persistence.jpa.UserRepositoryImpl;
+import com.egt.persistence.jpa.UserRepository;
 import com.egt.persistence.services.UserService;
 
 @Configuration
@@ -21,8 +21,8 @@ public class PersistenceJPAConfigXml {
     }
     
     @Bean
-    public UserDAO userDAO() {
-    	UserDAO userDAO = new UserDAOImpl();
+    public UserRepository userDAO() {
+    	UserRepository userDAO = new UserRepositoryImpl();
         // set properties, etc.
         return userDAO;
     }

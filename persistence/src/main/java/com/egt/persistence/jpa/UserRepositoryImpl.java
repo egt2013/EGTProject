@@ -1,4 +1,4 @@
-package com.egt.persistence.dao;
+package com.egt.persistence.jpa;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -7,7 +7,7 @@ import com.egt.core.common.exception.DatabaseException;
 import com.egt.core.common.util.StringUtil;
 import com.egt.persistence.entity.User;
 
-public class UserDAOImpl extends BaseDAOImpl implements UserDAO{
+public class UserRepositoryImpl extends BaseRepositoryImpl implements UserRepository{
 
 	public String getCriteria(User user){
 		StringBuffer sql = new StringBuffer();

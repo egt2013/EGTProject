@@ -4,7 +4,7 @@ import java.util.*;
 import com.egt.persistence.bean.Criteria;
 import com.egt.persistence.bean.PagingBean;
 import com.egt.persistence.bean.PagingBean.Order;
-import com.egt.persistence.dao.BaseDAO;
+import com.egt.persistence.jpa.BaseRepository;
 
 import java.lang.reflect.Method;
 import javax.persistence.Query;
@@ -200,7 +200,7 @@ public class QueryHelper {
 				orderString.append(" order by ");
 				int i = 0;
 				for( Order order : orderList ){
-					orderString.append( BaseDAO.ENTITY_MODEL_ALIAS + "." + order.getOrderBy() + " " + order.getOrderMode() + ",");
+					orderString.append( BaseRepository.ENTITY_MODEL_ALIAS + "." + order.getOrderBy() + " " + order.getOrderMode() + ",");
 					i++;
 				}
 				orderString.deleteCharAt(orderString.length()-1);

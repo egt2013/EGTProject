@@ -1,4 +1,4 @@
-package com.egt.persistence.dao;
+package com.egt.persistence.jpa;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -21,11 +21,11 @@ import com.egt.persistence.bean.PagingBean;
 import com.egt.persistence.bean.PagingBean.Order;
 import com.egt.persistence.util.QueryHelper;
 
-public class BaseDAOImpl implements BaseDAO{
+public class BaseRepositoryImpl implements BaseRepository{
 	/**
 	 * Logger for this class
 	 */
-	private static final Log logger = LogFactory.getLog(BaseDAOImpl.class);
+	private static final Log logger = LogFactory.getLog(BaseRepositoryImpl.class);
 	
 	protected EntityManager entityManager;
 
@@ -61,7 +61,7 @@ public class BaseDAOImpl implements BaseDAO{
 			queryString.append(" order by ");
 			int i = 0;
 			for( Order order : orderList ){
-				queryString.append( BaseDAO.ENTITY_MODEL_ALIAS + "." + order.getOrderBy() + " " + order.getOrderMode() + ",");
+				queryString.append( BaseRepository.ENTITY_MODEL_ALIAS + "." + order.getOrderBy() + " " + order.getOrderMode() + ",");
 				i++;
 			}
 			queryString.deleteCharAt(queryString.length()-1);
@@ -101,7 +101,7 @@ public class BaseDAOImpl implements BaseDAO{
 			queryString.append(" order by ");
 			int i = 0;
 			for( Order order : orderList ){
-				queryString.append( BaseDAO.ENTITY_MODEL_ALIAS + "." + order.getOrderBy() + " " + order.getOrderMode() + ",");
+				queryString.append( BaseRepository.ENTITY_MODEL_ALIAS + "." + order.getOrderBy() + " " + order.getOrderMode() + ",");
 				i++;
 			}
 			queryString.deleteCharAt(queryString.length()-1);
