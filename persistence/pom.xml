@@ -122,6 +122,14 @@
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-aspects</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>com.google.guava</groupId>
+			<artifactId>guava</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.tomcat</groupId>
+			<artifactId>tomcat-dbcp</artifactId>
+		</dependency>
 	</dependencies>
 	<build>
 		<plugins>
@@ -142,10 +150,9 @@
 				<directory>src/test/resources</directory>
 				<includes>
 					<include>**/*.properties</include>
+					<include>**/*.xml</include>
 				</includes>
-				<excludes>
-					<exclude>**/*local.properties</exclude>
-				</excludes>
+				<!-- <excludes> <exclude>**/*.properties</exclude> </excludes> -->
 			</resource>
 			<resource>
 				<directory>src/main/resources</directory>

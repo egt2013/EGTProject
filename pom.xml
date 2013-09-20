@@ -25,7 +25,7 @@
 		<aspectjrtVersion>1.6.10</aspectjrtVersion>
 		<javax.injectVersion>1</javax.injectVersion>
 		<junitVersion>4.10</junitVersion>
-		<springframeworkVersion>3.1.1.RELEASE</springframeworkVersion>
+		<springframeworkVersion>3.2.4.RELEASE</springframeworkVersion>
 		<cglibVersion>2.2</cglibVersion>
 		<postgresqlVersion>9.1-901.jdbc4</postgresqlVersion>
 		<dom4jVersion>1.6.1</dom4jVersion>
@@ -49,7 +49,7 @@
 		<json-libVersion>2.4</json-libVersion>
 		<servlet-apiVersion>2.5</servlet-apiVersion>
 		<ezmorphVersion>1.0.6</ezmorphVersion>
-		<spring-securityVersion>3.1.0.RELEASE</spring-securityVersion>
+		<spring-securityVersion>3.1.4.RELEASE</spring-securityVersion>
 		<jsp-apiVersion>2.1</jsp-apiVersion>
 		<jstlVersion>1.2</jstlVersion>
 		<validation-apiVersion>1.0.0.GA</validation-apiVersion>
@@ -62,6 +62,9 @@
 		<jacksonVersion>1.9.10</jacksonVersion>
 		<derbyVersion>10.10.1.1</derbyVersion>
 		<hibernate-jpa-2.0-apiVersion>1.0.1.Final</hibernate-jpa-2.0-apiVersion>
+		<guavaVersion>14.0.1</guavaVersion>
+		<commons-lang3Version>3.1</commons-lang3Version>
+		<tomcat-dbcpVersion>7.0.41</tomcat-dbcpVersion>
 	</properties>
 	<dependencyManagement>
 		<dependencies>
@@ -337,6 +340,22 @@
 				<artifactId>derby</artifactId>
 				<version>${derbyVersion}</version>
 				<scope>test</scope>
+			</dependency>
+			<dependency>
+				<groupId>com.google.guava</groupId>
+				<artifactId>guava</artifactId>
+				<version>${guavaVersion}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.commons</groupId>
+				<artifactId>commons-lang3</artifactId>
+				<version>${commons-lang3Version}</version>
+				<scope>test</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.tomcat</groupId>
+				<artifactId>tomcat-dbcp</artifactId>
+				<version>${tomcat-dbcpVersion}</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>

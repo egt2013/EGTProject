@@ -7,12 +7,21 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "USER")
+@Table(name = "USERS", schema = BaseEntity.SCHEMA)
 public class User extends BaseEntity implements Serializable{
 	@Column(name = "username")
 	private String userName;
 	@Column(name = "password")
 	private String password;
+	
+	public User() {
+		this("","");
+	}
+	
+	public User(String userName , String password) {
+		this.userName = userName;
+		this.password = password;
+	}
 	
 	public String getUserName() {
 		return userName;

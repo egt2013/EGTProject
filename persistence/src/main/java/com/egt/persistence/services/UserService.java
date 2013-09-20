@@ -1,14 +1,20 @@
 package com.egt.persistence.services;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
 import com.egt.persistence.dao.UserDAO;
-import com.egt.persistence.dao.UserDAOImpl;
 import com.egt.persistence.entity.User;
 
+@Service
+@Transactional
 public class UserService {
 
-	private final static UserDAO userDAO = new UserDAOImpl();
-	
-    public static void createOrUpdateCostCentreCodes(User user) throws Exception {
-    	userDAO.save(user);
+    @Autowired
+    private UserDAO dao;
+    
+    public void createOrUpdateCostCentreCodes(User user) throws Exception {
+    	dao.save(user);
     }
 }
