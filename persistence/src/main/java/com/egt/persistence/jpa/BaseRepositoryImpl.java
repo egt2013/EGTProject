@@ -11,7 +11,9 @@ import org.apache.commons.lang.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Required;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -20,7 +22,8 @@ import com.egt.persistence.bean.Criteria;
 import com.egt.persistence.bean.PagingBean;
 import com.egt.persistence.bean.PagingBean.Order;
 import com.egt.persistence.util.QueryHelper;
-
+@Configuration
+@Repository
 public class BaseRepositoryImpl implements BaseRepository{
 	/**
 	 * Logger for this class

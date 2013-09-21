@@ -3,10 +3,12 @@ package com.egt.persistence.jpa;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.stereotype.Repository;
+
 import com.egt.core.common.exception.DatabaseException;
 import com.egt.core.common.util.StringUtil;
 import com.egt.persistence.entity.User;
-
+@Repository
 public class UserRepositoryImpl extends BaseRepositoryImpl implements UserRepository{
 
 	public String getCriteria(User user){

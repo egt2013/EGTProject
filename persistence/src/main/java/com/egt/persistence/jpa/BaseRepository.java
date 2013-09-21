@@ -8,8 +8,7 @@ import org.springframework.stereotype.Repository;
 import com.egt.core.common.exception.DatabaseException;
 import com.egt.persistence.bean.Criteria;
 import com.egt.persistence.bean.PagingBean;
-@Configuration
-@Repository
+
 public interface BaseRepository {
 
 	public static final String ENTITY_MODEL_ALIAS = "model";

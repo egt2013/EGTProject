@@ -12,15 +12,12 @@ import org.springframework.test.context.support.AnnotationConfigContextLoader;
 
 import com.egt.persistence.config.PersistenceJPAConfigXml;
 import com.egt.persistence.entity.User;
-import com.egt.persistence.jpa.UserRepository;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = { PersistenceJPAConfigXml.class }, loader = AnnotationConfigContextLoader.class)
 public class TestUserService {
     @Autowired
     private UserService service;
-    @Autowired
-    private UserRepository dao;
    
     @Test
     public final void whenInvalidEntityIsCreated_thenDataException() throws Exception {
