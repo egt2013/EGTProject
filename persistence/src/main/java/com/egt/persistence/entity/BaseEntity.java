@@ -2,15 +2,8 @@ package com.egt.persistence.entity;
 
 import java.io.Serializable;
 import java.util.Date;
- 
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.MappedSuperclass;
-import javax.persistence.PrePersist;
-import javax.persistence.PreUpdate;
+
+import javax.persistence.*;
 
 /**
  * All Entities must extend this class for persistence. It does not have a backing table but ensures that all entities enforce the inclusions of mandatory columns.
@@ -50,6 +43,7 @@ public abstract class BaseEntity implements Serializable{
      */
     @Basic(optional = false)
     @Column(name = "CREATE_DATE", updatable = false)
+    @Temporal(TemporalType.TIMESTAMP)
     private Date                  createDate       = null;
 
     /**
@@ -57,6 +51,7 @@ public abstract class BaseEntity implements Serializable{
      */
     @Basic(optional = false)
     @Column(name = "MODIFIED_DATE")
+    @Temporal(TemporalType.TIMESTAMP)
     private Date                  modifiedDate     = null;
 
     public Date getCreateDate() {
