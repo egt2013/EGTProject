@@ -32,6 +32,10 @@
 			<artifactId>commons-collections</artifactId>
 		</dependency>
 		<dependency>
+			<groupId>org.ostermiller</groupId>
+			<artifactId>utils</artifactId>
+		</dependency>
+		<dependency>
 			<groupId>antlr</groupId>
 			<artifactId>antlr</artifactId>
 		</dependency>

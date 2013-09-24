@@ -11,14 +11,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.egt.persistence.entity.User;
+import com.egt.persistence.entity.UserBean;
 import com.egt.persistence.services.UserService;
 import com.egt.ws.model.Shop;
 
 @Controller
 @EnableTransactionManagement
 @ComponentScan({ "com.egt.persistence" })
-//@ImportResource({ "*persistence-context.xml" })
 public class JSONController {
     @Autowired
     private UserService service;
@@ -45,14 +44,14 @@ public class JSONController {
 		shop.setName(name);
 		shop.setStaffName(new String[] { "test1", "test2" });
 		try{
-			User user = new User();
+			UserBean user = new UserBean();
 			user.setUserName("test");
 			user.setPassword("password");
 			user.setModifiedBy("tip");
 			user.setCreatedBy("tip");
 	    	user.setCreateDate(new Date());
 	    	user.setModifiedDate(new Date());
-			service.createOrUpdateCostCentreCodes(user);
+			service.createOrUpdateUser(user);
 			shop.setSuccess(true);
 		}catch(Exception ex){
 			shop.setSuccess(false);

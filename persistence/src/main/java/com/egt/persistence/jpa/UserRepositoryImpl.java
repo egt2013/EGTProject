@@ -1,17 +1,14 @@
 package com.egt.persistence.jpa;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.springframework.stereotype.Repository;
 
 import com.egt.core.common.exception.DatabaseException;
 import com.egt.core.common.util.StringUtil;
-import com.egt.persistence.entity.User;
+import com.egt.persistence.entity.UserBean;
 @Repository
 public class UserRepositoryImpl extends BaseRepositoryImpl implements UserRepository{
 
-	public String getCriteria(User user){
+	public String getCriteria(UserBean user){
 		StringBuffer sql = new StringBuffer();
 		if(!StringUtil.isEmpty(user.getUserName())){
 			sql.append(" AND USERNAME = '"+user.getUserName()+"' \n");
@@ -23,39 +20,26 @@ public class UserRepositoryImpl extends BaseRepositoryImpl implements UserReposi
 		return sql.toString();
 	}
 	
-	public User findUserItem(User bean)throws DatabaseException {
-		User user = new User();
+	@Override
+	public UserBean validateLogin(UserBean bean) throws DatabaseException {
+		UserBean user = new UserBean();
 		StringBuffer sql = new StringBuffer();
 		String criteria = getCriteria(bean);
-		sql.append(" SELECT DISTINCT USER_ID ");
-		sql.append("     , USERNAME ");
-		sql.append("     , PASSWORD ");
-		sql.append(" FROM USER ");
-		
+		sql.append(" SELECT DISTINCT USER_ID \n");
+		sql.append("     , USERNAME \n");
+		sql.append("     , PASSWORD \n");
+		sql.append(" FROM USER \n");
+		sql.append(" WHERE 1=1 ");
 		sql.append(criteria);
-		user = (User)nativeQuery(sql.toString(), User.class);
+		user = (UserBean)nativeQuery(sql.toString(), UserBean.class);
 		return user;
 	}
 
-	public void save(User user) throws DatabaseException {
+
+	@Override
+	public void saveUser(UserBean user) throws DatabaseException {
 		super.save(user);
 		
-	}
-	
-	public boolean isUserExists(User user) throws DatabaseException{
-		boolean isUserExists = false;
-		StringBuffer sql = new StringBuffer();
-		String criteria = getCriteria(user);
-		sql.append(" SELECT USER_ID \n");
-		sql.append(" FROM USER \n");
-		sql.append(" WHERE 1=1 \n");
-		sql.append(criteria);
-		List<User> resultList = (ArrayList<User>)nativeQuery(sql.toString());
-		if(resultList != null && resultList.size() > 0 ){
-			isUserExists = true;
-		}
-		clear();
-		return isUserExists;
 	}
 
 }

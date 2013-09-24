@@ -65,6 +65,7 @@
 		<guavaVersion>14.0.1</guavaVersion>
 		<commons-lang3Version>3.1</commons-lang3Version>
 		<tomcat-dbcpVersion>7.0.41</tomcat-dbcpVersion>
+		<utilsVersion>1.07.00</utilsVersion>
 	</properties>
 	<dependencyManagement>
 		<dependencies>
@@ -134,8 +135,6 @@
 				<artifactId>commons-lang</artifactId>
 				<version>${commons-langVersion}</version>
 			</dependency>
-			<!-- <dependency> <groupId>net.sf.json-lib</groupId> <artifactId>json-lib</artifactId> 
-				<version>${json-libVersion}</version> </dependency> -->
 			<dependency>
 				<groupId>javax.servlet</groupId>
 				<artifactId>servlet-api</artifactId>
@@ -267,7 +266,6 @@
 				<groupId>log4j</groupId>
 				<artifactId>log4j</artifactId>
 				<version>1.2.16</version>
-				<scope>runtime</scope>
 			</dependency>
 			<dependency>
 				<groupId>org.aspectj</groupId>
@@ -356,6 +354,11 @@
 				<groupId>org.apache.tomcat</groupId>
 				<artifactId>tomcat-dbcp</artifactId>
 				<version>${tomcat-dbcpVersion}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.ostermiller</groupId>
+				<artifactId>utils</artifactId>
+				<version>${utilsVersion}</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>

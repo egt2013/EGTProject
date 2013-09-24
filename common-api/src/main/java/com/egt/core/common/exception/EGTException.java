@@ -9,6 +9,9 @@ public class EGTException extends Exception{
 	public static final String DATABASE_ERR_CODE = "C0002";
 	public static final String DATABASE_ERR_MSG = "DatabaseException";
 	
+	public static final String LOGIN_INVALID_ERR_CODE = "C0003";
+	public static final String LOGIN_INVALID_ERR_MSG = "LoginInvalidException";
+	
 	protected String errCode = "";
 	protected String errMsg = "";
 	protected String var1 = "";

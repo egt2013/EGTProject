@@ -2,9 +2,6 @@ package com.egt.persistence.jpa;
 
 import java.util.List;
 
-import org.springframework.context.annotation.Configuration;
-import org.springframework.stereotype.Repository;
-
 import com.egt.core.common.exception.DatabaseException;
 import com.egt.persistence.bean.Criteria;
 import com.egt.persistence.bean.PagingBean;
