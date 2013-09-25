@@ -89,6 +89,11 @@
 				<artifactId>ws</artifactId>
 				<version>${project.version}</version>
 			</dependency>
+            <dependency>
+                <groupId>${project.groupId}</groupId>
+                <artifactId>common-api</artifactId>
+                <version>${project.version}</version>
+            </dependency>
 			<dependency>
 				<groupId>junit</groupId>
 				<artifactId>junit</artifactId>
@@ -371,17 +376,6 @@
 					<artifactId>maven-resources-plugin</artifactId>
 					<configuration>
 						<encoding>UTF-8</encoding>
-					</configuration>
-				</plugin>
-				<plugin>
-					<groupId>org.mortbay.jetty</groupId>
-					<artifactId>maven-jetty-plugin</artifactId>
-					<version>${mavenJettyPluginVersion}</version>
-					<configuration>
-						<webAppConfig>
-							<contextPath>/</contextPath>
-						</webAppConfig>
-						<scanIntervalSeconds>10</scanIntervalSeconds>
 					</configuration>
 				</plugin>
 			</plugins>
