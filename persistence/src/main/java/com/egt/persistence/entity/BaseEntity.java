@@ -38,6 +38,10 @@ public abstract class BaseEntity implements Serializable{
     @Column(name = "MODIFIED_BY")
     private String                modifiedBy       = null;
 
+    @Basic(optional = false)
+    @Column(name = "STATUS")
+    private String status = null;
+
     /**
      * Date when this entity was created.
      */
@@ -115,5 +119,12 @@ public abstract class BaseEntity implements Serializable{
     public void updateModifiedDate() {
         this.modifiedDate = new Date(System.currentTimeMillis());
     }
-    
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
 }

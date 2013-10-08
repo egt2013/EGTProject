@@ -2,6 +2,7 @@ package com.egt.ws.controller;
 
 import java.util.Date;
 
+import com.egt.persistence.entity.MasUserEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Controller;
@@ -11,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.egt.persistence.entity.UserBean;
 import com.egt.persistence.services.UserService;
 import com.egt.ws.model.Shop;
 
@@ -44,7 +44,7 @@ public class JSONController {
 		shop.setName(name);
 		shop.setStaffName(new String[] { "test1", "test2" });
 		try{
-			UserBean user = new UserBean();
+			MasUserEntity user = new MasUserEntity();
 			user.setUserName("test");
 			user.setPassword("password");
 			user.setModifiedBy("tip");
