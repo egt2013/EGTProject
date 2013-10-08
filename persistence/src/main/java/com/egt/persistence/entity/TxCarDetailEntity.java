@@ -15,6 +15,7 @@ public class TxCarDetailEntity {
     private Long latitude;
     private Long longitude;
     private Long speed;
+    private String test;
 
 
 
