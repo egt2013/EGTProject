@@ -20,8 +20,8 @@ public class MasBusinessEntity extends BaseEntity implements Serializable {
     @Column(name="business_text",unique = true,nullable = false,length = 400)
     private String businessText;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "FK_MAS_BUSINESS")
-    private Set<MasUserGroupEntity> masUserGroupEntitySet;
+    @OneToMany(cascade = CascadeType.ALL)
+    private Set<MasCustomerEntity> masCustomerEntitySet;
 
     public String getBusiness() {
         return business;
@@ -39,11 +39,11 @@ public class MasBusinessEntity extends BaseEntity implements Serializable {
         this.businessText = businessText;
     }
 
-    public Set<MasUserGroupEntity> getMasUserGroupEntitySet() {
-        return masUserGroupEntitySet;
+    public Set<MasCustomerEntity> getMasCustomerEntitySet() {
+        return masCustomerEntitySet;
     }
 
-    public void setMasUserGroupEntitySet(Set<MasUserGroupEntity> masUserGroupEntitySet) {
-        this.masUserGroupEntitySet = masUserGroupEntitySet;
+    public void setMasCustomerEntitySet(Set<MasCustomerEntity> masCustomerEntitySet) {
+        this.masCustomerEntitySet = masCustomerEntitySet;
     }
 }

@@ -16,19 +16,20 @@ import java.util.Set;
 public class MasUserGroupEntity extends BaseEntity implements Serializable {
     @Column(name="GROUP",unique = true,nullable = false,length = 400)
     private String group;
+
     @Column(name="MAP_ZOOM_DEFAILT")
     private int mapZoomDefault = 10;
 
-    @OneToMany(cascade= CascadeType.ALL,fetch=FetchType.LAZY)
-    @JoinColumn(name="BUSINESS_ID",insertable=true,updatable=true,nullable=false)
+    @ManyToOne(fetch = FetchType.LAZY,optional = false)
+    @JoinColumn(name = "FK_MAS_BUSINESS", referencedColumnName = "ID")
     private MasBusinessEntity masBusinessEntity;
 
-    @OneToOne(cascade= CascadeType.ALL,fetch=FetchType.LAZY)
+    @OneToOne(fetch=FetchType.LAZY)
     @JoinColumn(name="LANGUAGE_ID",insertable=true,updatable=true,nullable=false)
     private MasLanguageEntity masLanguageEntityDefault;
 
-    @OneToMany(mappedBy = )
-    private Set<MasUserEntity> masUserEntity;
+    @OneToMany(fetch=FetchType.LAZY, mappedBy = "MAS_USER")
+    private Set<MasUserEntity> masUserEntitySet;
 
 
     public String getGroup() {

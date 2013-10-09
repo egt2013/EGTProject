@@ -66,6 +66,7 @@
 		<commons-lang3Version>3.1</commons-lang3Version>
 		<tomcat-dbcpVersion>7.0.41</tomcat-dbcpVersion>
 		<utilsVersion>1.07.00</utilsVersion>
+        <springSecurityOauth2Version>1.0.5.RELEASE</springSecurityOauth2Version>
 	</properties>
 	<dependencyManagement>
 		<dependencies>
@@ -365,6 +366,11 @@
 				<artifactId>utils</artifactId>
 				<version>${utilsVersion}</version>
 			</dependency>
+            <dependency>
+                <groupId>org.springframework.security.oauth</groupId>
+                <artifactId>spring-security-oauth2</artifactId>
+                <version>${springSecurityOauth2Version}</version>
+            </dependency>
 		</dependencies>
 	</dependencyManagement>
 	<build>
