@@ -1,4 +1,6 @@
 package com.egt.persistence.entity;
+import javax.persistence.Embedded;
+import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import java.util.Set;
 
@@ -9,13 +11,15 @@ import java.util.Set;
  * Time: 11:24 น.
  * To change this template use File | Settings | File Templates.
  */
-
-public class MasUserEntity extends BaseEntity {
+@Entity
+public class User extends BaseData {
     @ManyToOne
-    private MasUserGroupEntity masUserGroupEntity;
+    private MasUserGroupData masUserGroupEntity;
     private String username;
     private String password;
-    private Set<MasUserInfoEntity> masUserInfoEntitySet;
+
+    @Embedded
+    private Person person;
 
 
 

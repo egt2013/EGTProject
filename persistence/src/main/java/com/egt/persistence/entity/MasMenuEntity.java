@@ -9,7 +9,7 @@ import java.util.Set;
  * To change this template use File | Settings | File Templates.
  */
 public class MasMenuEntity {
-    private MasUserGroupEntity masUserGroupEntity;
+    private MasUserGroupData masUserGroupEntity;
     private Set<MasMenuInfoEntity> masMenuInfoEntitySet;
     private String menu;
     private MasMenuEntity masMenuMainRef;

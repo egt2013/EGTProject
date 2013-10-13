@@ -15,7 +15,7 @@
         <description>Persistence unit for Testing EGT Unit</description>
         <provider>org.hibernate.ejb.HibernatePersistence</provider>
         <class>com.egt.persistence.entity.User</class>
-        <class>com.egt.persistence.entity.BaseEntity</class>
+        <class>com.egt.persistence.entity.BaseData</class>
         <properties>
 
             <!-- POSTGRESQL Properties -->

@@ -1,4 +1,4 @@
-package com.egt.persistence.entity;
+package com.egt.persistence.entity.master;
 
 /**
  * Created with IntelliJ IDEA.

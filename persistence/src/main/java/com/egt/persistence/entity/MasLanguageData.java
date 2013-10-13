@@ -13,8 +13,8 @@ import java.io.Serializable;
  * To change this template use File | Settings | File Templates.
  */
 @Entity
-@Table(name = "MAS_LANGUAGE", schema = BaseEntity.SCHEMA)
-public class MasLanguageEntity extends BaseEntity implements Serializable {
+@Table(name = "MAS_LANGUAGE", schema = BaseData.SCHEMA)
+public class MasLanguageData extends BaseData implements Serializable {
     @Column(name="language_code",nullable = false,unique = true,length = 2)
     private String languageCode; //en , th
     @Column(name="language_txt",nullable = false,unique = true,length = 25)

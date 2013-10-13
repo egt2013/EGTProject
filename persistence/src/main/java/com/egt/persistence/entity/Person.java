@@ -1,5 +1,8 @@
 package com.egt.persistence.entity;
 
+import org.hibernate.validator.constraints.Email;
+
+import javax.persistence.*;
 import java.util.Date;
 
 /**
@@ -9,23 +12,19 @@ import java.util.Date;
  * Time: 11:29 น.
  * To change this template use File | Settings | File Templates.
  */
-public class MasUserInfoEntity {
-    private String companyName;
+@Embeddable
+@Access(AccessType.PROPERTY)
+public class Person {
+
     private String firstName;
     private String lastName;
     private String nickName;
+
+    @Temporal(TemporalType.DATE)
     private Date dateOfBirth;
-    private MasLanguageEntity masLanguage;
-    private String address;
-    private String mobile;
-    private String telNo;
-    private String fax;
-    private String email1;
-    private String email2;
 
-
-
-
+    @Embedded
+    private Address address;
 
 
 }

@@ -9,7 +9,7 @@ import java.util.Set;
  * To change this template use File | Settings | File Templates.
  */
 public class TxUserGroupEntity {
-    private MasUserGroupEntity masGroupEntity;
-    private Set<MasUserEntity> masUserEntitySet;
+    private MasUserGroupData masGroupEntity;
+    private Set<User> masUserEntitySet;
 
 }

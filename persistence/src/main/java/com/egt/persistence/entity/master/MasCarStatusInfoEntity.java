@@ -1,4 +1,6 @@
-package com.egt.persistence.entity;
+package com.egt.persistence.entity.master;
+
+import com.egt.persistence.entity.MasLanguageData;
 
 /**
  * Created with IntelliJ IDEA.
@@ -8,6 +10,6 @@ package com.egt.persistence.entity;
  * To change this template use File | Settings | File Templates.
  */
 public class MasCarStatusInfoEntity {
-    private MasLanguageEntity masLanguageEntity;
+    private MasLanguageData masLanguageEntity;
     private String statusText;
 }

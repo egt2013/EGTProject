@@ -8,7 +8,7 @@ package com.egt.persistence.entity;
  * To change this template use File | Settings | File Templates.
  */
 public class MasParameterEntity {
-    private MasLanguageEntity masLanguageEntity;
+    private MasLanguageData masLanguageEntity;
     private String key;
     private String value;
 }

@@ -1,5 +1,7 @@
 package com.egt.persistence.entity;
 
+import com.egt.persistence.entity.master.MasCarGroupEntity;
+
 import java.util.Set;
 
 /**

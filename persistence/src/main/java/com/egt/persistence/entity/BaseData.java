@@ -9,7 +9,7 @@ import javax.persistence.*;
  * All Entities must extend this class for persistence. It does not have a backing table but ensures that all entities enforce the inclusions of mandatory columns.
  */
 @MappedSuperclass
-public abstract class BaseEntity implements Serializable{
+public abstract class BaseData implements Serializable{
 
     /**
      * Schema where the tables sit.

@@ -1,5 +1,7 @@
 package com.egt.persistence.entity;
 
+import com.egt.persistence.entity.master.*;
+
 import java.sql.Date;
 
 /**
@@ -16,7 +18,7 @@ public class TxCarHeaderEntity {
     private MasCarStatusEntity masCarStatusEntity;
     private MasCarColorEntity masCarColorEntity;
     private MasTaxiRadioEntity masTaxiRadioEntity;
-    private MasUserGroupEntity masUserGroupEntity;
+    private MasUserGroupData masUserGroupEntity;
     private TxGpsEntity txGpsEntity;
     private String carRegistration;
     private String simNo;

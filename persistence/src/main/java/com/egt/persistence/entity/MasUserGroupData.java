@@ -2,7 +2,6 @@ package com.egt.persistence.entity;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Set;
 
 /**
  * Created with IntelliJ IDEA.
@@ -12,8 +11,8 @@ import java.util.Set;
  * To change this template use File | Settings | File Templates.
  */
 @Entity
-@Table(name="MAS_USER_GROUP" ,schema = BaseEntity.SCHEMA)
-public class MasUserGroupEntity extends BaseEntity implements Serializable {
+@Table(name="MAS_USER_GROUP" ,schema = BaseData.SCHEMA)
+public class MasUserGroupData extends BaseData implements Serializable {
     @Column(name="GROUP",unique = true,nullable = false,length = 400)
     private String group;
     @Column(name="MAP_ZOOM_DEFAILT")
@@ -21,14 +20,14 @@ public class MasUserGroupEntity extends BaseEntity implements Serializable {
 
     @OneToMany(cascade= CascadeType.ALL,fetch=FetchType.LAZY)
     @JoinColumn(name="BUSINESS_ID",insertable=true,updatable=true,nullable=false)
-    private MasBusinessEntity masBusinessEntity;
+    private Customer customer;
 
     @OneToOne(cascade= CascadeType.ALL,fetch=FetchType.LAZY)
     @JoinColumn(name="LANGUAGE_ID",insertable=true,updatable=true,nullable=false)
-    private MasLanguageEntity masLanguageEntityDefault;
+    private MasLanguageData masLanguageEntityDefault;
 
-    @OneToMany(mappedBy = )
-    private Set<MasUserEntity> masUserEntity;
+//    @OneToMany(mappedBy = )
+//    private Set<User> masUserEntity;
 
 
     public String getGroup() {
@@ -39,19 +38,19 @@ public class MasUserGroupEntity extends BaseEntity implements Serializable {
         this.group = group;
     }
 
-    public MasBusinessEntity getMasBusinessEntity() {
-        return masBusinessEntity;
+    public Customer getCustomer() {
+        return customer;
     }
 
-    public void setMasBusinessEntity(MasBusinessEntity masBusinessEntity) {
-        this.masBusinessEntity = masBusinessEntity;
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
     }
 
-    public MasLanguageEntity getMasLanguageEntityDefault() {
+    public MasLanguageData getMasLanguageEntityDefault() {
         return masLanguageEntityDefault;
     }
 
-    public void setMasLanguageEntityDefault(MasLanguageEntity masLanguageEntityDefault) {
+    public void setMasLanguageEntityDefault(MasLanguageData masLanguageEntityDefault) {
         this.masLanguageEntityDefault = masLanguageEntityDefault;
     }
 

@@ -8,7 +8,7 @@ package com.egt.persistence.entity;
  * To change this template use File | Settings | File Templates.
  */
 public class MasDriverInfoEntity {
-    private MasLanguageEntity masLanguageEntity;
+    private MasLanguageData masLanguageEntity;
     private String name;
     private String surname;
     private String address;

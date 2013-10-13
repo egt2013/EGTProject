@@ -1,4 +1,6 @@
-package com.egt.persistence.entity;
+package com.egt.persistence.entity.master;
+
+import com.egt.persistence.entity.MasUserGroupData;
 
 /**
  * Created with IntelliJ IDEA.
@@ -8,7 +10,7 @@ package com.egt.persistence.entity;
  * To change this template use File | Settings | File Templates.
  */
 public class MasCarGroupEntity {
-    private MasUserGroupEntity masUserGroupEntity;
+    private MasUserGroupData masUserGroupEntity;
     private String carGroup;
     private int speedLimitDefault;
 

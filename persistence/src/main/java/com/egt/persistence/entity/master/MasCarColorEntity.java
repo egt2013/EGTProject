@@ -1,4 +1,6 @@
-package com.egt.persistence.entity;
+package com.egt.persistence.entity.master;
+
+import com.egt.persistence.entity.MasLanguageData;
 
 /**
  * Created with IntelliJ IDEA.
@@ -9,5 +11,5 @@ package com.egt.persistence.entity;
  */
 public class MasCarColorEntity {
     private String color;
-    private MasLanguageEntity masLanguage;
+    private MasLanguageData masLanguage;
 }

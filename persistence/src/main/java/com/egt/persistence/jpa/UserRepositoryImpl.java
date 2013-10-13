@@ -1,15 +1,14 @@
 package com.egt.persistence.jpa;
 
-import com.egt.persistence.entity.MasUserEntity;
+import com.egt.persistence.entity.User;
 import org.springframework.stereotype.Repository;
 
 import com.egt.core.common.exception.DatabaseException;
-import com.egt.core.common.util.StringUtil;
 
 @Repository
 public class UserRepositoryImpl extends BaseRepositoryImpl implements UserRepository{
 
-	public String getCriteria(MasUserEntity user){
+	public String getCriteria(User user){
 		StringBuffer sql = new StringBuffer();
 //		if(!StringUtil.isEmpty(user.getUserName())){
 //			sql.append(" AND USERNAME = '"+user.getUserName()+"' \n");
@@ -22,14 +21,14 @@ public class UserRepositoryImpl extends BaseRepositoryImpl implements UserReposi
 	}
 	
 	@Override
-	public MasUserEntity validateLogin(MasUserEntity bean) throws DatabaseException {
-		MasUserEntity user = new MasUserEntity();
+	public User validateLogin(User bean) throws DatabaseException {
+		User user = new User();
 		return user;
 	}
 
 
 	@Override
-	public void saveUser(MasUserEntity user) throws DatabaseException {
+	public void saveUser(User user) throws DatabaseException {
 		super.save(user);
 		
 	}

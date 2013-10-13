@@ -8,6 +8,6 @@ package com.egt.persistence.entity;
  * To change this template use File | Settings | File Templates.
  */
 public class MasMenuInfoEntity {
-    private MasLanguageEntity masLanguageEntity;
+    private MasLanguageData masLanguageEntity;
     private String menuText;
 }

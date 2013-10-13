@@ -3,7 +3,7 @@ package com.egt.persistence.services;
 
 import java.util.Date;
 
-import com.egt.persistence.entity.MasUserEntity;
+import com.egt.persistence.entity.User;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +21,7 @@ public class TestUserService {
    
     @Test
     public final void crateOrUpdateUser() throws Exception {
-    	MasUserEntity user = new MasUserEntity();
+    	User user = new User();
     	user.setUserName("testcc");
     	user.setPassword("passworccd");
     	user.setCreatedBy("tipcc");
