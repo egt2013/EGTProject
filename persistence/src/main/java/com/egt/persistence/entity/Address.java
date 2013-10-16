@@ -6,6 +6,7 @@ import javax.persistence.Access;
 import javax.persistence.AccessType;
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
+import java.io.Serializable;
 
 /**
  * Created with IntelliJ IDEA.
@@ -17,7 +18,7 @@ import javax.persistence.Embeddable;
 
 @Embeddable
 @Access(AccessType.PROPERTY)
-public class Address {
+public class Address implements Serializable {
 
     private String address;
     private String address1;

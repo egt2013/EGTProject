@@ -12,11 +12,9 @@ import java.sql.Date;
  * To change this template use File | Settings | File Templates.
  */
 public class TxCarHeaderEntity {
-    private MasCarTypeEntity masCarTypeEntity;
-    private MasCarBrandEntity masCarBrandEntity;
-    private MasCarModelEntity masCarModelEntity;
-    private MasCarStatusEntity masCarStatusEntity;
-    private MasCarColorEntity masCarColorEntity;
+    private Brand brand;
+    private Model model;
+    private Color color;
     private MasTaxiRadioEntity masTaxiRadioEntity;
     private MasUserGroupData masUserGroupEntity;
     private TxGpsEntity txGpsEntity;
