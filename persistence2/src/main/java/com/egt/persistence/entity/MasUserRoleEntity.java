@@ -4,6 +4,7 @@ import org.hibernate.annotations.ForeignKey;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Set;
 
 /**
  * Created with IntelliJ IDEA.
@@ -19,6 +20,9 @@ public class MasUserRoleEntity extends BaseEntity implements Serializable {
     @Column(name="USER_ROLE",unique = true,nullable = false,length = 400)
     private String userRole;
 
+//    @OneToMany(fetch = FetchType.LAZY)
+//    private Set<MasUserEntity> masUserEntitySet;
+
     public String getUserRole() {
         return userRole;
     }
@@ -26,6 +30,14 @@ public class MasUserRoleEntity extends BaseEntity implements Serializable {
     public void setUserRole(String userRole) {
         this.userRole = userRole;
     }
+
+//    public Set<MasUserEntity> getMasUserEntitySet() {
+//        return masUserEntitySet;
+//    }
+//
+//    public void setMasUserEntitySet(Set<MasUserEntity> masUserEntitySet) {
+//        this.masUserEntitySet = masUserEntitySet;
+//    }
 
     @Override
     public String toString() {

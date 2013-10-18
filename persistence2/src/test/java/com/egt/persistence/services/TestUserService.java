@@ -70,23 +70,16 @@ public class TestUserService {
         userRole.setStatus("A");
         userRole.setCreateDate(new Date());
         userRole.setModifiedDate(new Date());
-    	userService.createOrUpdateUser(user,userRole);
+
+        user.setMasUserRoleEntity(userRole);
+    	userService.createOrUpdateUser(user);
     }
     @Test
     public final void validateUser() throws Exception {
     	MasUserEntity user = new MasUserEntity();
     	user.setUsername("test");
-    	user.setPassword("passworccd");
 
-        MasUserRoleEntity masUserRoleEntity = new MasUserRoleEntity();
-        masUserRoleEntity.setUserRole("ROLE_USER");
-
-        MasUserRoleMappingEntity masUserRoleMappingEntity = new MasUserRoleMappingEntity();
-        masUserRoleMappingEntity.setMasUserEntity(user);
-        masUserRoleMappingEntity.setMasUserRoleEntity(masUserRoleEntity);
-
-
-        masUserRoleMappingEntity = userService.validateLogin(masUserRoleMappingEntity);
-        System.out.println(masUserRoleMappingEntity.getMasUserEntity().toString());
+        user = userService.validateLogin(user);
+        System.out.println(user.toString());
     }
 }

@@ -5,7 +5,6 @@ import com.egt.core.common.exception.LoginInvalidException;
 import com.egt.core.common.util.StringUtil;
 import com.egt.persistence.entity.MasUserEntity;
 import com.egt.persistence.entity.MasUserRoleEntity;
-import com.egt.persistence.entity.MasUserRoleMappingEntity;
 import com.egt.persistence.jpa.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,8 +16,8 @@ public class UserServiceImpl implements UserService{
     @Autowired
     private UserRepository userRepo;
     
-    public void createOrUpdateUser(MasUserEntity user,MasUserRoleEntity userRoleEntity) throws DatabaseException {
-        if(user != null){
+    public void createOrUpdateUser(MasUserEntity user) throws DatabaseException {
+        if(user != null && user.getMasUserRoleEntity() != null){
             if(user.getMasCustomerEntity() != null){
                 if(user.getMasCustomerEntity().getMasLanguageEntityDefault() != null){
                     userRepo.saveLanguage(user.getMasCustomerEntity().getMasLanguageEntityDefault());
@@ -31,29 +30,19 @@ public class UserServiceImpl implements UserService{
                 userRepo.saveCustomer(user.getMasCustomerEntity());
             }
 
+            userRepo.saveUserRole(user.getMasUserRoleEntity());
+
             userRepo.saveUser(user);
         }
 
-        if(userRoleEntity != null){
-            userRepo.saveUserRole(userRoleEntity);
-        }
 
-        MasUserRoleMappingEntity roleMapping = new MasUserRoleMappingEntity();
-        roleMapping.setMasUserEntity(user);
-        roleMapping.setMasUserRoleEntity(userRoleEntity);
-        roleMapping.setCreatedBy("tipcc");
-        roleMapping.setModifiedBy("tipcc");
-        roleMapping.setStatus("A");
-        roleMapping.setCreateDate(new Date());
-        roleMapping.setModifiedDate(new Date());
-        userRepo.saveUserRoleMapping(roleMapping);
 
     }
 
 	@Override
-	public MasUserRoleMappingEntity validateLogin(MasUserRoleMappingEntity masUserRoleMappingEntity) throws LoginInvalidException,DatabaseException {
-        MasUserRoleMappingEntity result = userRepo.validateLogin(masUserRoleMappingEntity);
-		if(result == null || StringUtil.isEmpty(result.getMasUserEntity().getUsername())){
+	public MasUserEntity validateLogin(MasUserEntity masUserEntity) throws LoginInvalidException,DatabaseException {
+        MasUserEntity result = userRepo.validateLogin(masUserEntity);
+		if(result == null || StringUtil.isEmpty(result.getUsername())){
 			throw new LoginInvalidException();
 		}
 		return result;

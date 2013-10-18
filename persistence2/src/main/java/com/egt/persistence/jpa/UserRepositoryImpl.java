@@ -8,53 +8,16 @@ import java.util.List;
 
 @Repository
 public class UserRepositoryImpl extends BaseRepositoryImpl implements UserRepository{
-
-	public String getCriteria(MasUserEntity user){
-		StringBuffer sql = new StringBuffer();
-//		if(!StringUtil.isEmpty(user.getUserName())){
-//			sql.append(" AND USERNAME = '"+user.getUserName()+"' \n");
-//		}
-//		if(!StringUtil.isEmpty(user.getPassword())){
-//			sql.append(" AND PASSWORD = '"+user.getPassword()+"' \n");
-//		}
-//
-		return sql.toString();
-	}
 	
 	@Override
-	public MasUserRoleMappingEntity validateLogin(MasUserRoleMappingEntity masUserRoleMappingEntity) throws DatabaseException {
-        MasUserRoleMappingEntity result = new MasUserRoleMappingEntity();
-        List masUserEntityList = super.findByExample(masUserRoleMappingEntity.getMasUserEntity());
-        List masUserRoleEntityList = super.findByExample(masUserRoleMappingEntity.getMasUserRoleEntity());
-        MasUserEntity masUserEntity = new MasUserEntity();
-        MasUserRoleEntity masUserRoleEntity = new MasUserRoleEntity();
-        if(masUserEntityList != null && masUserEntityList.size() > 0){
-            masUserEntity = (MasUserEntity)masUserEntityList.get(0);
-        }
-
-        if(masUserRoleEntityList != null && masUserEntityList.size() >0){
-            masUserRoleEntity = (MasUserRoleEntity)masUserRoleEntityList.get(0);
-        }
-        masUserRoleMappingEntity.setMasUserEntity(masUserEntity);
-        masUserRoleMappingEntity.setMasUserRoleEntity(masUserRoleEntity);
-
-        List mappingList = super.findByExample(masUserRoleMappingEntity);
+	public MasUserEntity validateLogin(MasUserEntity masUserEntity) throws DatabaseException {
+        MasUserEntity result = new MasUserEntity();
+        List mappingList = super.findByExample(masUserEntity);
         if(mappingList != null && mappingList.size() > 0){
-            result = (MasUserRoleMappingEntity)mappingList.get(0);
+            result = (MasUserEntity)mappingList.get(0);
         }
 		return result;
 	}
-
-    @Override
-    public MasUserRoleMappingEntity findUserByUserName(String username) throws DatabaseException {
-        MasUserEntity masUserEntity = new MasUserEntity();
-        masUserEntity.setUsername(username);
-        masUserEntity = (MasUserEntity)super.findSingleByExample(masUserEntity);
-
-
-        return null;
-    }
-
 
     @Override
 	public void saveUser(MasUserEntity user) throws DatabaseException {
@@ -81,11 +44,5 @@ public class UserRepositoryImpl extends BaseRepositoryImpl implements UserReposi
     public void saveUserRole(MasUserRoleEntity masUserRoleEntity) throws DatabaseException {
         super.save(masUserRoleEntity);
     }
-
-    @Override
-    public void saveUserRoleMapping(MasUserRoleMappingEntity masUserRoleMappingEntity) throws DatabaseException{
-        super.save(masUserRoleMappingEntity);
-    }
-
 
 }

@@ -36,6 +36,10 @@ public class MasUserEntity extends BaseEntity implements Serializable {
     @Column(name = "EXPIRE_DATE")
     private Date ExpireDate;
 
+    @ManyToOne()
+    @JoinColumn(name = "USER_ROLE_ID")
+    @ForeignKey(name="FK_MAS_USER_ROLE_MAPPING")
+    private MasUserRoleEntity masUserRoleEntity;
 
 //    @OneToMany(fetch=FetchType.LAZY, mappedBy = "FK_MAS_USER")
 //    private Set<MasUserInfoEntity> masUserInfoEntitySet;
@@ -88,6 +92,14 @@ public class MasUserEntity extends BaseEntity implements Serializable {
         ExpireDate = expireDate;
     }
 
+    public MasUserRoleEntity getMasUserRoleEntity() {
+        return masUserRoleEntity;
+    }
+
+    public void setMasUserRoleEntity(MasUserRoleEntity masUserRoleEntity) {
+        this.masUserRoleEntity = masUserRoleEntity;
+    }
+
     //    public Set<MasUserInfoEntity> getMasUserInfoEntitySet() {
 //        return masUserInfoEntitySet;
 //    }
@@ -106,6 +118,7 @@ public class MasUserEntity extends BaseEntity implements Serializable {
         str.append("enable="+this.isEnable()+"\n");
         str.append("lock="+this.isLock()+"\n");
         str.append("expireDate="+this.getExpireDate()+"\n");
+        str.append("urerRole="+this.getMasUserRoleEntity().getUserRole());
         return str.toString();
     }
 }
