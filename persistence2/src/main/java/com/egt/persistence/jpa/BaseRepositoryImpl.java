@@ -1,12 +1,10 @@
 package com.egt.persistence.jpa;
 
-import java.math.BigDecimal;
-import java.util.List;
-
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-import javax.persistence.Query;
-
+import com.egt.core.common.exception.DatabaseException;
+import com.egt.persistence.bean.Criteria;
+import com.egt.persistence.bean.PagingBean;
+import com.egt.persistence.bean.PagingBean.Order;
+import com.egt.persistence.util.QueryHelper;
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -17,11 +15,11 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.egt.core.common.exception.DatabaseException;
-import com.egt.persistence.bean.Criteria;
-import com.egt.persistence.bean.PagingBean;
-import com.egt.persistence.bean.PagingBean.Order;
-import com.egt.persistence.util.QueryHelper;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
+import java.math.BigDecimal;
+import java.util.List;
 @Configuration
 @Repository
 public class BaseRepositoryImpl implements BaseRepository{
@@ -335,7 +333,16 @@ public class BaseRepositoryImpl implements BaseRepository{
 
 	public List<? extends Object> findByExample( final Object example ) throws DatabaseException{	
 		return findByExample( example, null, null );
-	}	
+	}
+
+    public Object findSingleByExample( final Object example ) throws DatabaseException{
+        List list = findByExample(example);
+        Object result = new Object();
+        if(list != null && list.size() >0){
+            result = (Object)list.get(0);
+        }
+        return result;
+    }
 
 	public List<? extends Object> findByExample( final Object example, final String extraWhereClause ) throws DatabaseException{	
 		return findByExample( example, null, extraWhereClause );

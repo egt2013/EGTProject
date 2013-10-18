@@ -45,7 +45,7 @@ public abstract class BaseEntity implements Serializable{
      * Date when this entity was created.
      */
     @Basic(optional = false)
-    @Column(name = "CREATE_DATE", updatable = false)
+    @Column(name = "CREATE_DATE", updatable = false,columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     @Temporal(TemporalType.TIMESTAMP)
     private Date                  createDate       = null;
 
@@ -53,7 +53,7 @@ public abstract class BaseEntity implements Serializable{
      * Date when this entity was last modified.
      */
     @Basic(optional = false)
-    @Column(name = "MODIFIED_DATE")
+    @Column(name = "MODIFIED_DATE",columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     @Temporal(TemporalType.TIMESTAMP)
     private Date                  modifiedDate     = null;
 

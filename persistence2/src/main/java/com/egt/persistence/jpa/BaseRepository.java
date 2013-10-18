@@ -1,10 +1,10 @@
 package com.egt.persistence.jpa;
 
-import java.util.List;
-
 import com.egt.core.common.exception.DatabaseException;
 import com.egt.persistence.bean.Criteria;
 import com.egt.persistence.bean.PagingBean;
+
+import java.util.List;
 
 public interface BaseRepository {
 
@@ -163,5 +163,6 @@ public interface BaseRepository {
 	public List<? extends Object> nativeQuery(String sql, Class c, String[] paramNames, Object... params);
 	
 	public List<? extends Object> nativeQuery(String sql, String nameMapping);
+    public Object findSingleByExample( final Object example ) throws DatabaseException;
 
 }

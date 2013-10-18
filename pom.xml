@@ -17,7 +17,7 @@
 	<modules>
 		<module>datasource</module>
 		<module>common-api</module>
-		<module>persistence</module>
+		<module>persistence2</module>
 		<module>ws</module>
 		<!-- <module>services</module> -->
 	</modules>
@@ -82,7 +82,7 @@
 			</dependency>
 			<dependency>
 				<groupId>${project.groupId}</groupId>
-				<artifactId>persistence</artifactId>
+				<artifactId>persistence2</artifactId>
 				<version>${project.version}</version>
 			</dependency>
 			<dependency>
@@ -213,6 +213,11 @@
 				<artifactId>spring-aop</artifactId>
 				<version>${springframeworkVersion}</version>
 			</dependency>
+            <dependency>
+                <groupId>org.springframework.security</groupId>
+                <artifactId>spring-security-core</artifactId>
+                <version>${spring-securityVersion}</version>
+            </dependency>
 			<dependency>
 				<groupId>org.springframework.security</groupId>
 				<artifactId>spring-security-web</artifactId>

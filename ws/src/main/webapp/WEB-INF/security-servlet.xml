@@ -1,11 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns:oauth="http://www.springframework.org/schema/security/oauth2" xmlns:sec="http://www.springframework.org/schema/security"
-       xmlns:mvc="http://www.springframework.org/schema/mvc"
-       xsi:schemaLocation="http://www.springframework.org/schema/security/oauth2 http://www.springframework.org/schema/security/spring-security-oauth2-1.0.xsd
-		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd
-		http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.2.xsd
-		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd">
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+             xmlns:beans="http://www.springframework.org/schema/beans"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+	http://www.springframework.org/schema/security
+	http://www.springframework.org/schema/security/spring-security.xsd">
 
+<http auto-config="true" >
+    <intercept-url pattern="/welcome*" access="ROLE_USER" />
+    <!--<intercept-url pattern="/admin*" access="ROLE_ADMIN" />-->
+    <!--<form-login login-page="/login" default-target-url="/welcome" />-->
+    <!--<access-denied-handler ref="accessDeniedHandler"/>-->
+    <!--<logout logout-success-url="/logout" />-->
+    <form-login login-page="/login" default-target-url="/welcome" authentication-failure-url="/loginfailed" />
+    <logout logout-success-url="/logout" />
+</http>
 
-</beans>
+<authentication-manager id="testAuthenticationManager">
+    <authentication-provider>
+        <user-service>
+        <user name="mkyong" password="123456" authorities="ROLE_USER" />
+        <user name="admin" password="123456" authorities="ROLE_ADMIN" />
+        </user-service>
+       <!-- <jdbc-user-service data-source-ref="dataSource"
+                           users-by-username-query="select username,password,enabled from authdb.users where username=?"
+                           authorities-by-username-query="select u.username,ur.authority from authdb.users u , authdb.user_roles ur where u.user_id = ur.user_id and u.username=?"
+                />-->
+    </authentication-provider>
+</authentication-manager>
+
+</beans:beans>

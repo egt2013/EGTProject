@@ -21,7 +21,7 @@
 		</dependency>
 		<dependency>
 			<groupId>com.egt.core</groupId>
-			<artifactId>persistence</artifactId>
+			<artifactId>persistence2</artifactId>
 		</dependency>			
 		<dependency>
 			<groupId>junit</groupId>
@@ -194,6 +194,10 @@
         <dependency>
             <groupId>org.springframework.security.oauth</groupId>
             <artifactId>spring-security-oauth2</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-core</artifactId>
         </dependency>
 	</dependencies>
 	<build>

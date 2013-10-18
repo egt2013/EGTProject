@@ -4,6 +4,7 @@ import org.hibernate.annotations.ForeignKey;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.sql.Date;
 
 /**
  * Created with IntelliJ IDEA.
@@ -25,6 +26,16 @@ public class MasUserEntity extends BaseEntity implements Serializable {
 
     @Column(name="SECRET",unique = true,nullable = false,length = 400)
     private String password;
+
+    @Column(name="USER_LOCK",columnDefinition = "boolean default false")
+    private boolean lock;
+
+    @Column(name="USER_ENABLE",columnDefinition = "boolean default true")
+    private boolean enable;
+
+    @Column(name = "EXPIRE_DATE")
+    private Date ExpireDate;
+
 
 //    @OneToMany(fetch=FetchType.LAZY, mappedBy = "FK_MAS_USER")
 //    private Set<MasUserInfoEntity> masUserInfoEntitySet;
@@ -53,11 +64,48 @@ public class MasUserEntity extends BaseEntity implements Serializable {
         this.password = password;
     }
 
-//    public Set<MasUserInfoEntity> getMasUserInfoEntitySet() {
+    public boolean isLock() {
+        return lock;
+    }
+
+    public void setLock(boolean lock) {
+        this.lock = lock;
+    }
+
+    public boolean isEnable() {
+        return enable;
+    }
+
+    public void setEnable(boolean enable) {
+        this.enable = enable;
+    }
+
+    public Date getExpireDate() {
+        return ExpireDate;
+    }
+
+    public void setExpireDate(Date expireDate) {
+        ExpireDate = expireDate;
+    }
+
+    //    public Set<MasUserInfoEntity> getMasUserInfoEntitySet() {
 //        return masUserInfoEntitySet;
 //    }
 //
 //    public void setMasUserInfoEntitySet(Set<MasUserInfoEntity> masUserInfoEntitySet) {
 //        this.masUserInfoEntitySet = masUserInfoEntitySet;
 //    }
+
+
+    @Override
+    public String toString() {
+        StringBuffer str = new StringBuffer();
+        str.append("id="+this.getId()+"\n");
+        str.append("username="+this.getUsername()+"\n");
+        str.append("password="+this.getPassword()+"\n");
+        str.append("enable="+this.isEnable()+"\n");
+        str.append("lock="+this.isLock()+"\n");
+        str.append("expireDate="+this.getExpireDate()+"\n");
+        return str.toString();
+    }
 }
