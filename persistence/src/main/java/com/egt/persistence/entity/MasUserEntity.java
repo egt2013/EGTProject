@@ -19,4 +19,5 @@ public class MasUserEntity extends BaseEntity {
 
 
 
+
 }

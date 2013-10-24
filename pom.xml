@@ -66,8 +66,18 @@
 		<commons-lang3Version>3.1</commons-lang3Version>
 		<tomcat-dbcpVersion>7.0.41</tomcat-dbcpVersion>
 		<utilsVersion>1.07.00</utilsVersion>
-        <springSecurityOauth2Version>1.0.5.RELEASE</springSecurityOauth2Version>
+        <!--<springSecurityOauth2Version>1.0.5.RELEASE</springSecurityOauth2Version>-->
+        <springSecurityOauth2Version>1.1.0.BUILD-SNAPSHOT</springSecurityOauth2Version>
 	</properties>
+    <url>http://static.springframework.org/spring-security/oauth/samples</url>
+    <distributionManagement>
+
+        <site>
+            <id>static.springframework.org</id>
+            <url>scp://static.springframework.org/var/www/domains/springframework.org/static/htdocs/spring-security/oauth/samples</url>
+        </site>
+
+    </distributionManagement>
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
@@ -244,12 +254,12 @@
 				<groupId>org.springframework.security</groupId>
 				<artifactId>spring-security-config</artifactId>
 				<version>${spring-securityVersion}</version>
-				<exclusions>
-					<exclusion>
-						<groupId>commons-logging</groupId>
-						<artifactId>commons-logging</artifactId>
-					</exclusion>
-				</exclusions>
+				<!--<exclusions>-->
+					<!--<exclusion>-->
+						<!--<groupId>commons-logging</groupId>-->
+						<!--<artifactId>commons-logging</artifactId>-->
+					<!--</exclusion>-->
+				<!--</exclusions>-->
 			</dependency>
 			<dependency>
 				<groupId>org.springframework.security</groupId>
