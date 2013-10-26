@@ -22,7 +22,7 @@ public class TestUserService {
     @Test
     public final void crateOrUpdateUser() throws Exception {
     	User user = new User();
-    	user.setUserName("testcc");
+    	user.setUsername("testcc");
     	user.setPassword("passworccd");
     	user.setCreatedBy("tipcc");
     	user.setModifiedBy("tipcc");
@@ -31,12 +31,11 @@ public class TestUserService {
     	user.setModifiedDate(new Date());
     	service.createOrUpdateUser(user);
     }
-/*    
     @Test
     public final void validateUser() throws Exception {
     	User user = new User();
-    	user.setUserName("testcc");
+    	user.setUsername("testcc");
     	user.setPassword("passworccd");
     	service.validateLogin(user);
-    }*/
+    }
 }

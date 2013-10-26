@@ -3,9 +3,7 @@ package com.egt.persistence.entity.master;
 import com.egt.persistence.entity.BaseData;
 import com.egt.persistence.entity.MasLanguageData;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.io.Serializable;
 
 /**
@@ -17,7 +15,13 @@ import java.io.Serializable;
  */
 @Entity
 @Table(name = "CarStatus", schema = BaseData.SCHEMA)
-public class CarStatus implements Serializable {
+public class CarStatus implements Serializable  {
+
+@Id
+@GeneratedValue(strategy = GenerationType.IDENTITY)
+@Column(name = "ID")
+private Long                  id;
+
     @Column(unique = true,nullable = false)
     private String name;
 
@@ -38,5 +42,13 @@ public class CarStatus implements Serializable {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 }

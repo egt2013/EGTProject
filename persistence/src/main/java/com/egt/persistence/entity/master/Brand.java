@@ -2,9 +2,7 @@ package com.egt.persistence.entity.master;
 
 import com.egt.persistence.entity.BaseData;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.io.Serializable;
 
 /**
@@ -16,7 +14,13 @@ import java.io.Serializable;
  */
 @Entity
 @Table(name = "Brand", schema = BaseData.SCHEMA)
-public class Brand implements Serializable {
+public class Brand implements Serializable  {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "ID")
+    private Long                  id;
+
     @Column(length = 5,unique = true,nullable = false)
     private String code;
 
@@ -50,4 +54,12 @@ public class Brand implements Serializable {
     public void setDescription(String description) {
         this.description = description;
     }
+
+        public Long getId() {
+            return id;
+        }
+
+        public void setId(Long id) {
+            this.id = id;
+        }
 }

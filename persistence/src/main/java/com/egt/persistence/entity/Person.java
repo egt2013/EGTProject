@@ -16,8 +16,12 @@ import java.util.Date;
 @Access(AccessType.PROPERTY)
 public class Person {
 
+    @Column(length = 100)
     private String firstName;
+    @Column(length = 100)
     private String lastName;
+
+    @Column(length = 50)
     private String nickName;
 
     @Temporal(TemporalType.DATE)

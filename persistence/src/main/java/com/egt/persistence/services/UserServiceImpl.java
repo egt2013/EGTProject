@@ -21,9 +21,9 @@ public class UserServiceImpl implements UserService{
 	@Override
 	public User validateLogin(User user) throws LoginInvalidException,DatabaseException {
 		User result = userRepo.validateLogin(user);
-		if(result == null || StringUtil.isEmpty(result.getUserName())){
-			throw new LoginInvalidException();
-		}
+//		if(result == null || StringUtil.isEmpty(result.getUserName())){
+//			throw new LoginInvalidException();
+//		}
 		return result;
 	}
     

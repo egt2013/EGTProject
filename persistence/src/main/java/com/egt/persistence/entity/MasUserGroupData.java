@@ -10,15 +10,15 @@ import java.io.Serializable;
  * Time: 11:24 น.
  * To change this template use File | Settings | File Templates.
  */
-@Entity
-@Table(name="MAS_USER_GROUP" ,schema = BaseData.SCHEMA)
+//@Entity
+//@Table(name="MAS_USER_GROUP" ,schema = BaseData.SCHEMA)
 public class MasUserGroupData extends BaseData implements Serializable {
     @Column(name="GROUP",unique = true,nullable = false,length = 400)
     private String group;
     @Column(name="MAP_ZOOM_DEFAILT")
     private int mapZoomDefault = 10;
 
-    @OneToMany(cascade= CascadeType.ALL,fetch=FetchType.LAZY)
+    @ManyToOne(cascade= CascadeType.ALL,fetch=FetchType.LAZY)
     @JoinColumn(name="BUSINESS_ID",insertable=true,updatable=true,nullable=false)
     private Customer customer;
 
