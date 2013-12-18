@@ -36,7 +36,7 @@ public class Vehicle extends BaseData  implements Serializable {
 //    private TxGpsEntity txGpsEntity;
 
     @Column(unique = true,nullable = false)
-    private String carRegistration;
+    private String registerNo;
     @Column(unique = true,nullable = false)
     private String simNo;
 
@@ -70,12 +70,12 @@ public class Vehicle extends BaseData  implements Serializable {
         this.color = color;
     }
 
-    public String getCarRegistration() {
-        return carRegistration;
+    public String getRegisterNo() {
+        return registerNo;
     }
 
-    public void setCarRegistration(String carRegistration) {
-        this.carRegistration = carRegistration;
+    public void setRegisterNo(String registerNo) {
+        this.registerNo = registerNo;
     }
 
     public String getSimNo() {
