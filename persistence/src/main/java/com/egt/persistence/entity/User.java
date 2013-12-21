@@ -13,8 +13,7 @@ import java.util.Set;
 @Entity
 @Table(name = "User", schema = BaseData.SCHEMA)
 public class User extends BaseData implements Serializable {
-//    @ManyToOne
-//    private MasUserGroupData masUserGroupEntity;
+
 
     @Column(unique = true,nullable = false)
     private String username;
@@ -24,6 +23,9 @@ public class User extends BaseData implements Serializable {
 
     @Embedded
     private Person person;
+
+    @ManyToMany(mappedBy="users")
+    private Set<Customer> customers;
 
 
     public String getUsername() {
@@ -48,5 +50,13 @@ public class User extends BaseData implements Serializable {
 
     public void setPerson(Person person) {
         this.person = person;
+    }
+
+    public Set<Customer> getCustomers() {
+        return customers;
+    }
+
+    public void setCustomers(Set<Customer> customers) {
+        this.customers = customers;
     }
 }

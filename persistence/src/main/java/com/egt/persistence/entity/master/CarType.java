@@ -1,7 +1,6 @@
 package com.egt.persistence.entity.master;
 
 import com.egt.persistence.entity.BaseData;
-import com.egt.persistence.entity.MasLanguageData;
 
 import javax.persistence.*;
 import java.io.Serializable;

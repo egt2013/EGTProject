@@ -7,6 +7,7 @@ import com.egt.persistence.entity.master.Model;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.Set;
 
 /**
  * Created with IntelliJ IDEA.
@@ -19,9 +20,7 @@ import java.util.Date;
 @Table(name = "Vehicle", schema = BaseData.SCHEMA)
 public class Vehicle extends BaseData  implements Serializable {
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "brand_id",nullable = false)
-    private Brand brand;
+
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(nullable = false)
@@ -31,28 +30,25 @@ public class Vehicle extends BaseData  implements Serializable {
     @JoinColumn(nullable = false)
     private Color color;
 
-//    private MasTaxiRadioEntity masTaxiRadioEntity;
-//    private MasUserGroupData masUserGroupEntity;
-//    private TxGpsEntity txGpsEntity;
-
     @Column(unique = true,nullable = false)
     private String registerNo;
     @Column(unique = true,nullable = false)
     private String simNo;
 
-//    private MasDriverEntity masDriverEntity;
+    @Column(unique = true,nullable = false)
+    private String engineNo;
 
     @Temporal(TemporalType.DATE)
     @Column
     private Date expireDate;
 
-    public Brand getBrand() {
-        return brand;
-    }
+    @Temporal(TemporalType.DATE)
+    @Column
+    private Date installDate;
 
-    public void setBrand(Brand brand) {
-        this.brand = brand;
-    }
+    @OneToMany(fetch = FetchType.LAZY)
+    private Set<VehicleHistory> vehicleHistorys;
+
 
     public Model getModel() {
         return model;
@@ -92,5 +88,29 @@ public class Vehicle extends BaseData  implements Serializable {
 
     public void setExpireDate(Date expireDate) {
         this.expireDate = expireDate;
+    }
+
+    public String getEngineNo() {
+        return engineNo;
+    }
+
+    public void setEngineNo(String engineNo) {
+        this.engineNo = engineNo;
+    }
+
+    public Date getInstallDate() {
+        return installDate;
+    }
+
+    public void setInstallDate(Date installDate) {
+        this.installDate = installDate;
+    }
+
+    public Set<VehicleHistory> getVehicleHistorys() {
+        return vehicleHistorys;
+    }
+
+    public void setVehicleHistorys(Set<VehicleHistory> vehicleHistorys) {
+        this.vehicleHistorys = vehicleHistorys;
     }
 }

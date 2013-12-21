@@ -13,7 +13,7 @@ import java.io.Serializable;
  * To change this template use File | Settings | File Templates.
  */
 @Entity
-@Table(name = "Model", schema = BaseData.SCHEMA)
+@Table(name = "Model")
 public class Model implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,6 +28,10 @@ public class Model implements Serializable{
 
     @Column
     private String description;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "brand_id",nullable = false)
+    private Brand brand;
 
     public String getCode() {
         return code;
@@ -59,5 +63,13 @@ public class Model implements Serializable{
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public Brand getBrand() {
+        return brand;
+    }
+
+    public void setBrand(Brand brand) {
+        this.brand = brand;
     }
 }

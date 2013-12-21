@@ -1,10 +1,8 @@
 package com.egt.persistence.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Embedded;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Set;
 
 /**
  * Created with IntelliJ IDEA.
@@ -22,6 +20,18 @@ public class Customer extends BaseData implements Serializable {
     private String name;
     @Embedded
     private Address address;
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "customer")
+    private Set<Vehicle> vehicles;
+
+    @ManyToMany
+    @JoinTable(name="customer_has_user",
+            joinColumns=
+            @JoinColumn(name="homeId", referencedColumnName="id"),
+            inverseJoinColumns=
+            @JoinColumn(name="personId", referencedColumnName="id")
+    )
+    private Set<User> users;
 
     public String getCode() {
         return code;
@@ -45,5 +55,13 @@ public class Customer extends BaseData implements Serializable {
 
     public void setAddress(Address address) {
         this.address = address;
+    }
+
+    public Set<Vehicle> getVehicles() {
+        return vehicles;
+    }
+
+    public void setVehicles(Set<Vehicle> vehicles) {
+        this.vehicles = vehicles;
     }
 }

@@ -4,6 +4,7 @@ import com.egt.persistence.entity.BaseData;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Set;
 
 /**
  * Created with IntelliJ IDEA.
@@ -13,7 +14,7 @@ import java.io.Serializable;
  * To change this template use File | Settings | File Templates.
  */
 @Entity
-@Table(name = "Brand", schema = BaseData.SCHEMA)
+@Table(name = "Brand")
 public class Brand implements Serializable  {
 
     @Id
@@ -29,6 +30,9 @@ public class Brand implements Serializable  {
 
     @Column
     private String description;
+
+    @OneToMany(fetch = FetchType.LAZY)
+    private Set<Model> models;
 
 
     public String getCode() {
@@ -62,4 +66,12 @@ public class Brand implements Serializable  {
         public void setId(Long id) {
             this.id = id;
         }
+
+    public Set<Model> getModels() {
+        return models;
+    }
+
+    public void setModels(Set<Model> models) {
+        this.models = models;
+    }
 }
