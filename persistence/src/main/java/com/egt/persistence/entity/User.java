@@ -27,6 +27,15 @@ public class User extends BaseData implements Serializable {
     @ManyToMany(mappedBy="users")
     private Set<Customer> customers;
 
+    @ManyToMany
+    @JoinTable(name="user_has_role", schema = BaseData.SCHEMA,
+            joinColumns=
+            @JoinColumn(name="user_id", referencedColumnName="id"),
+            inverseJoinColumns=
+            @JoinColumn(name="role_id", referencedColumnName="id")
+    )
+    private Set<Role> roles;
+
 
     public String getUsername() {
         return username;
@@ -58,5 +67,13 @@ public class User extends BaseData implements Serializable {
 
     public void setCustomers(Set<Customer> customers) {
         this.customers = customers;
+    }
+
+    public Set<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Set<Role> roles) {
+        this.roles = roles;
     }
 }
