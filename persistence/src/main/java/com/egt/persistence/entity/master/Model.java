@@ -13,7 +13,7 @@ import java.io.Serializable;
  * To change this template use File | Settings | File Templates.
  */
 @Entity
-@Table(name = "Model")
+@Table(name = "Model", schema = BaseData.SCHEMA)
 public class Model implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

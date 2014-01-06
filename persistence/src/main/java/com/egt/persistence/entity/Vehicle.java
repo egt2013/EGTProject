@@ -49,6 +49,9 @@ public class Vehicle extends BaseData  implements Serializable {
     @OneToMany(fetch = FetchType.LAZY)
     private Set<VehicleHistory> vehicleHistorys;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "customer_id",nullable = false)
+    private Customer customer;
 
     public Model getModel() {
         return model;
@@ -112,5 +115,13 @@ public class Vehicle extends BaseData  implements Serializable {
 
     public void setVehicleHistorys(Set<VehicleHistory> vehicleHistorys) {
         this.vehicleHistorys = vehicleHistorys;
+    }
+
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
     }
 }

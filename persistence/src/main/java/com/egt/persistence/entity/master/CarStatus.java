@@ -13,7 +13,7 @@ import java.io.Serializable;
  * To change this template use File | Settings | File Templates.
  */
 @Entity
-@Table(name = "CarStatus", schema = BaseData.SCHEMA)
+@Table(name = "car_status", schema = BaseData.SCHEMA)
 public class CarStatus implements Serializable  {
 
 @Id

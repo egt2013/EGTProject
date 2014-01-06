@@ -25,11 +25,11 @@ public class Customer extends BaseData implements Serializable {
     private Set<Vehicle> vehicles;
 
     @ManyToMany
-    @JoinTable(name="customer_has_user",
+    @JoinTable(name="customer_has_user", schema = BaseData.SCHEMA,
             joinColumns=
-            @JoinColumn(name="homeId", referencedColumnName="id"),
+            @JoinColumn(name="customer_id", referencedColumnName="id"),
             inverseJoinColumns=
-            @JoinColumn(name="personId", referencedColumnName="id")
+            @JoinColumn(name="user_id", referencedColumnName="id")
     )
     private Set<User> users;
 
@@ -63,5 +63,13 @@ public class Customer extends BaseData implements Serializable {
 
     public void setVehicles(Set<Vehicle> vehicles) {
         this.vehicles = vehicles;
+    }
+
+    public Set<User> getUsers() {
+        return users;
+    }
+
+    public void setUsers(Set<User> users) {
+        this.users = users;
     }
 }

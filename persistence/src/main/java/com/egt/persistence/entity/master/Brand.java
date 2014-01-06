@@ -14,7 +14,7 @@ import java.util.Set;
  * To change this template use File | Settings | File Templates.
  */
 @Entity
-@Table(name = "Brand")
+@Table(name = "Brand", schema = BaseData.SCHEMA)
 public class Brand implements Serializable  {
 
     @Id
